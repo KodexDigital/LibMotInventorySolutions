@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMotInventory", "LibMotInventory\LibMotInventory.csproj", "{4B7C73A7-4BEA-4413-BC4B-25C31CB0122C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMotInventory.Model", "LibMotInventory.Model\LibMotInventory.Model.csproj", "{7B32FE2C-E800-45F6-A3B5-6DD44DA61DED}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibMotInventory.DataAccessLayer", "LibMotInventory.DataAccessLayer\LibMotInventory.DataAccessLayer.csproj", "{654FD51A-8705-4D43-B2B9-A9C2AC2091E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{4B7C73A7-4BEA-4413-BC4B-25C31CB0122C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B7C73A7-4BEA-4413-BC4B-25C31CB0122C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B7C73A7-4BEA-4413-BC4B-25C31CB0122C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B32FE2C-E800-45F6-A3B5-6DD44DA61DED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B32FE2C-E800-45F6-A3B5-6DD44DA61DED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B32FE2C-E800-45F6-A3B5-6DD44DA61DED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B32FE2C-E800-45F6-A3B5-6DD44DA61DED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{654FD51A-8705-4D43-B2B9-A9C2AC2091E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{654FD51A-8705-4D43-B2B9-A9C2AC2091E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{654FD51A-8705-4D43-B2B9-A9C2AC2091E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{654FD51A-8705-4D43-B2B9-A9C2AC2091E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
