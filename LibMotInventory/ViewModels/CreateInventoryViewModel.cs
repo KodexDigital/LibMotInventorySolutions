@@ -19,7 +19,7 @@ namespace LibMotInventory.ViewModels
 			inventory.ItemName = ItemName;
 			inventory.NumberOfItem = NumberOfItem;
 			inventory.Cost = Cost;
-			inventory.InventroyNumber = InventroyNumber;
+			inventory.InventroyNumber = InventoryNumber;
 			inventory.ItemDescription = ItemDescription;
 			inventory.SerialNumber = SerialNumber;
 			inventory.EstimatedValue = EstimatedValue;
@@ -32,7 +32,7 @@ namespace LibMotInventory.ViewModels
 
 		[Required]
 		[Display(Name = "Number of items")]
-		public string NumberOfItem { get; set; }
+		public int NumberOfItem { get; set; }
 
 		[Required]
 		[Display(Name = "Item cost")]
@@ -40,7 +40,7 @@ namespace LibMotInventory.ViewModels
 
 		[Required]
 		[Display(Name = "Inventory number")]
-		public string InventroyNumber { get; set; }
+		public string InventoryNumber { get; set; }
 
 		[Required]
 		[Display(Name = "Item description")]

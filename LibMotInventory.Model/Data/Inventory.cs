@@ -9,7 +9,7 @@ namespace LibMotInventory.Model.Data
 	{
 		public Guid Id { get; set; }
 		public string ItemName { get; set; }
-		public string NumberOfItem { get; set; }
+		public int NumberOfItem { get; set; }
 		public double Cost { get; set; }
 		public string InventroyNumber { get; set; }
 		public string ItemDescription { get; set; }

@@ -1,7 +1,70 @@
-﻿
+﻿@model LibMotInventory.ViewModels.CreateInventoryViewModel
+
 @{
-    ViewData["Title"] = "CreateInventroy";
+	ViewData["Title"] = "Create new inventroy";
 }
 
-<h1>CreateInventroy</h1>
+	<div style="margin-top:-1em">
+		<div class="bg-info bg-light p-4 row">
+			<h1 class="col-md-6">CREATE NEW INVENTORY</h1>
+			<div class="alert alert-warning alert-dismissible fade show h3" role="alert">
+				<strong>Inventory Name!</strong> New inventory created successfully
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		</div>
+		<div class="row pt-3">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form method="post" asp-action="CreateInventroy" enctype="multipart/form-data">
+					<div class="form-group">
+						<label asp-for="ItemName"></label>
+						<input asp-for="ItemName" class="form-control">
+						<span asp-validation-for="ItemName" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="ItemDescription"></label>
+						<textarea asp-for="ItemDescription" class="form-control" rows="10"></textarea>
+						<span asp-validation-for="ItemDescription" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="InventoryNumber"></label>
+						<input asp-for="InventoryNumber" class="form-control">
+						<span asp-validation-for="InventoryNumber" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="VendorLesser"></label>
+						<input asp-for="VendorLesser" class="form-control">
+						<span asp-validation-for="VendorLesser" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="Cost"></label>
+						<input asp-for="Cost" class="form-control">
+						<span asp-validation-for="Cost" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="SerialNumber"></label>
+						<input asp-for="SerialNumber" class="form-control">
+						<span asp-validation-for="SerialNumber" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="EstimatedValue"></label>
+						<input asp-for="EstimatedValue" class="form-control">
+						<span asp-validation-for="EstimatedValue" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<label asp-for="NumberOfItem"></label>
+						<input asp-for="NumberOfItem" class="form-control">
+						<span asp-validation-for="NumberOfItem" class="text-danger"></span>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-primary rounded-pill">Submit</button>
+					</div>
 
+				</form>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+
+	</div>
