@@ -1,6 +1,6 @@
 using System;
 
-namespace LibMotInventory.Models
+namespace LibMotInventory.Model.Data
 {
 	public class ErrorViewModel
 	{
