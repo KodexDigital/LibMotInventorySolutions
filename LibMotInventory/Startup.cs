@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using LibMotInventory.Model.Data;
+using LibMotInventory.Model.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,6 +28,10 @@ namespace LibMotInventory
 		{
 			services.AddControllersWithViews();
 			services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnectionString")));
+
+			services.AddScoped(typeof(IInventoryRepository<>), typeof(InventoryRepository<>));
+			services.AddScoped(typeof(IWarehouseRepository<>), typeof(WarehouseRepository<>));
+			services.AddScoped(typeof(IEmployeeRepository<>), typeof(EmployeeRepository<>));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
