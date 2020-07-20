@@ -18,7 +18,9 @@ namespace LibMotInventory.Model.Data
 			base.OnModelCreating(builder);
 		}
 
-
+		public DbSet<Inventory> Inventories { get; set; }
+		public DbSet<Employee> Employees { get; set; }
+		public DbSet<Warehouse> Warehouses { get; set; }
 
 	}
 }
