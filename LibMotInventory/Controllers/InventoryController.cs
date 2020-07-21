@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibMotInventory.DataAccessLayer;
 using LibMotInventory.Model.Data;
 using LibMotInventory.Model.Data.Repository;
 using LibMotInventory.ViewModels;
@@ -15,11 +16,13 @@ namespace LibMotInventory.Controllers
     {
         private readonly ApplicationDBContext context;
         private readonly IInventoryRepository<Inventory> inventory;
+        private readonly BussinessLogics bussinessLogics;
 
-        public InventoryController(ApplicationDBContext _context, IInventoryRepository<Inventory> inventory)
+        public InventoryController(ApplicationDBContext _context, IInventoryRepository<Inventory> inventory, BussinessLogics bussinessLogics)
         {
             context = _context;
             this.inventory = inventory;
+            this.bussinessLogics = bussinessLogics;
         }
         public async Task<IActionResult> Index()
         {
@@ -28,6 +31,9 @@ namespace LibMotInventory.Controllers
 
         public IActionResult CreateInventroy()
         {
+            var sN = bussinessLogics.GenerateSerialNumber();
+            ViewBag.SerialNumber = sN;
+
             List<Warehouse> warehouseList = new List<Warehouse>();
             warehouseList = (from c in context.Warehouses select c).OrderBy(x => x.ItemName)
                             .ToList();

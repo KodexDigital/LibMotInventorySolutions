@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LibMotInventory.DataAccessLayer;
 using LibMotInventory.Model.Data;
 using LibMotInventory.Model.Data.Repository;
 using LibMotInventory.ViewModels;
@@ -41,6 +42,7 @@ namespace LibMotInventory
 			services.AddScoped(typeof(IWarehouseRepository<>), typeof(WarehouseRepository<>));
 			services.AddScoped(typeof(IEmployeeRepository<>), typeof(EmployeeRepository<>));
 			services.AddScoped(typeof(IdentityUser));
+			services.AddScoped(typeof(BussinessLogics));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

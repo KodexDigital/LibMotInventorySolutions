@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LibMotInventory.DataAccessLayer\LibMotInventory.DataAccessLayer.csproj" />
     <ProjectReference Include="..\LibMotInventory.Model\LibMotInventory.Model.csproj" />
   </ItemGroup>
 

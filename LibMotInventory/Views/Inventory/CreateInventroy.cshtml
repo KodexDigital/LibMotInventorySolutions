@@ -48,7 +48,7 @@
 					</div>
 					<div class="form-group">
 						<label asp-for="SerialNumber"></label>
-						<input asp-for="SerialNumber" class="form-control">
+						<input asp-for="SerialNumber" class="form-control"  readonly value="@ViewBag.SerialNumber">
 						<span asp-validation-for="SerialNumber" class="text-danger"></span>
 					</div>
 					<div class="form-group">
