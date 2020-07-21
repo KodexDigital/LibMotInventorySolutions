@@ -1,0 +1,42 @@
+﻿@model LibMotInventory.ViewModels.EmployeeViewModel
+
+@{
+	ViewData["Title"] = "Index";
+}
+
+<div style="margin-top:-1em">
+	<div class="row pt-3">
+		@if (ViewBag.Error != null)
+		{
+			<div class="alert alert-warning alert-dismissible fade show h3" role="alert">
+				<strong>Login Error </strong> <hr /> @ViewBag.Error
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+		}
+		<div class="col-md-3"></div>
+		<div class="col-md-6 p-5">
+			<form method="post" asp-action="Index" enctype="multipart/form-data" class="card p-4 rounded">
+				<div class="form-group">
+					<label asp-for="EmployeeUserName"></label>
+					<input asp-for="EmployeeUserName" class="form-control">
+					<span asp-validation-for="EmployeeUserName" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<label asp-for="EmployeePassword"></label>
+					<input asp-for="EmployeePassword" class="form-control">
+					<span asp-validation-for="EmployeePassword" class="text-danger"></span>
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary rounded-pill">Login now</button>
+				</div>
+				<hr />
+				Don't  have account? <a asp-action="Register">Sign up</a>
+
+			</form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+
+</div>

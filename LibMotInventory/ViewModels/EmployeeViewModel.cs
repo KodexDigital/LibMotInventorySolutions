@@ -22,7 +22,17 @@ namespace LibMotInventory.ViewModels
 
 		public Guid EmployeeId { get; set; }
 
-		[Display(Name = "Inventoru number")]
+		[Display(Name = "Inventory number")]
 		public string InventoryNumber { get; set; }
+		
+		[Required]
+		[EmailAddress]
+		[Display(Name = "Username")]
+		public string EmployeeUserName { get; set; }
+
+		[Required]
+		[DataType(DataType.Password)]
+		[Display(Name = "Password")]
+		public string EmployeePassword { get; set; }
 	}
 }

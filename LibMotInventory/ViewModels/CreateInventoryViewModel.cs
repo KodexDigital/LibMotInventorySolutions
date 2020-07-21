@@ -1,4 +1,5 @@
 ﻿using LibMotInventory.Model.Data;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -16,6 +17,7 @@ namespace LibMotInventory.ViewModels
 
 		public CreateInventoryViewModel(Inventory inventory)
 		{
+			inventory.Id = Id;
 			inventory.ItemName = ItemName;
 			inventory.NumberOfItem = NumberOfItem;
 			inventory.Cost = Cost;
@@ -26,6 +28,7 @@ namespace LibMotInventory.ViewModels
 			inventory.VendorLesser = VendorLesser;
 		}
 
+		public Guid Id { get; set; }
 		[Required]
 		[Display(Name ="Item name")]
 		public string ItemName { get; set; }
@@ -57,5 +60,6 @@ namespace LibMotInventory.ViewModels
 		[Required]
 		[Display(Name = "Vendor or Lesser")]
 		public string VendorLesser { get; set; }
+
 	}
 }

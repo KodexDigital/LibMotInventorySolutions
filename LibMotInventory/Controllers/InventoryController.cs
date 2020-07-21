@@ -6,15 +6,17 @@ using LibMotInventory.Model.Data;
 using LibMotInventory.Model.Data.Repository;
 using LibMotInventory.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.Language;
 
 namespace LibMotInventory.Controllers
 {
     public class InventoryController : Controller
     {
         private readonly ApplicationDBContext context;
-        private readonly InventoryRepository<Inventory> inventory;
+        private readonly IInventoryRepository<Inventory> inventory;
 
-        public InventoryController(ApplicationDBContext _context, InventoryRepository<Inventory> inventory)
+        public InventoryController(ApplicationDBContext _context, IInventoryRepository<Inventory> inventory)
         {
             context = _context;
             this.inventory = inventory;
@@ -26,6 +28,16 @@ namespace LibMotInventory.Controllers
 
         public IActionResult CreateInventroy()
         {
+            List<Warehouse> warehouseList = new List<Warehouse>();
+            warehouseList = (from c in context.Warehouses select c).OrderBy(x => x.ItemName)
+                            .ToList();
+            warehouseList.Insert(0, new Warehouse 
+            {
+                Id = Guid.NewGuid(), 
+                ItemName = "Select item" 
+            });
+            ViewBag.ItemName = warehouseList;
+
             return View();
         }
 
