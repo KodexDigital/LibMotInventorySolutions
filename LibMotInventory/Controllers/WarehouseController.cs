@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LibMotInventory.Controllers
 {
-    [Authorize]
     public class WarehouseController : Controller
     {
         private readonly ApplicationDBContext context;
