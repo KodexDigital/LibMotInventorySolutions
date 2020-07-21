@@ -21,9 +21,9 @@ namespace LibMotInventory.Controllers
             context = _context;
             this.inventory = inventory;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(context.Inventories.OrderByDescending(p => p.Id).ToList());
         }
 
         public IActionResult CreateInventroy()

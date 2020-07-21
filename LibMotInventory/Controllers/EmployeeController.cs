@@ -41,7 +41,7 @@ namespace LibMotInventory.Controllers
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                         return Redirect(returnUrl);
 
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index", "Inventory");
 
                 }
               
@@ -82,6 +82,12 @@ namespace LibMotInventory.Controllers
 
             }
             return View(model);
+        }
+
+        public async Task<IActionResult> Logout()
+        {
+            await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Inventory");
         }
     }
 }
