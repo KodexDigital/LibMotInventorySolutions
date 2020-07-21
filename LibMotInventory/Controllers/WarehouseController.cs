@@ -5,10 +5,12 @@ using System.Threading.Tasks;
 using LibMotInventory.Model.Data;
 using LibMotInventory.Model.Data.Repository;
 using LibMotInventory.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace LibMotInventory.Controllers
 {
+    [Authorize]
     public class WarehouseController : Controller
     {
         private readonly ApplicationDBContext context;

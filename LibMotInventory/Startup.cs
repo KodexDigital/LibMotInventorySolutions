@@ -31,18 +31,26 @@ namespace LibMotInventory
 		{
 			services.AddControllersWithViews();
 			services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DBConnectionString")));
+			services.AddAuthentication();
 			services.AddIdentity<IdentityUser, IdentityRole>(options =>
 			{
 				options.Password.RequireDigit = true;
 				options.Password.RequiredLength = 8;
 				options.Password.RequireNonAlphanumeric = false;
 			})
-			.AddEntityFrameworkStores<ApplicationDBContext>();
+			.AddEntityFrameworkStores<ApplicationDBContext>()
+			.AddDefaultTokenProviders();
 			services.AddScoped(typeof(IInventoryRepository<>), typeof(InventoryRepository<>));
 			services.AddScoped(typeof(IWarehouseRepository<>), typeof(WarehouseRepository<>));
 			services.AddScoped(typeof(IEmployeeRepository<>), typeof(EmployeeRepository<>));
 			services.AddScoped(typeof(IdentityUser));
 			services.AddScoped(typeof(BussinessLogics));
+
+			services.ConfigureApplicationCookie(options =>
+			{
+				options.LoginPath = $"/Employee/Index";
+				options.LogoutPath = $"/Employee/Logout";
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
