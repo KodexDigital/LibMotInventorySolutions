@@ -6,6 +6,7 @@ using LibMotInventory.DataAccessLayer;
 using LibMotInventory.Model.Data;
 using LibMotInventory.Model.Data.Repository;
 using LibMotInventory.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.Language;
@@ -17,19 +18,24 @@ namespace LibMotInventory.Controllers
         private readonly ApplicationDBContext context;
         private readonly IInventoryRepository<Inventory> inventory;
         private readonly BussinessLogics bussinessLogics;
+        private readonly IdentityUser user;
+        private readonly IEmployeeRepository<Employee> employeeRepo;
 
-        public InventoryController(ApplicationDBContext _context, IInventoryRepository<Inventory> inventory, BussinessLogics bussinessLogics)
+        public InventoryController(ApplicationDBContext _context, IInventoryRepository<Inventory> inventory, 
+            BussinessLogics bussinessLogics, IdentityUser user, IEmployeeRepository<Employee> employeeRepo)
         {
             context = _context;
             this.inventory = inventory;
             this.bussinessLogics = bussinessLogics;
+            this.user = user;
+            this.employeeRepo = employeeRepo;
         }
         public async Task<IActionResult> Index()
         {
             return View(context.Inventories.OrderByDescending(p => p.Id).ToList());
         }
 
-        public IActionResult CreateInventroy()
+        public IActionResult CreateInventroy(Guid Id)
         {
             var sN = bussinessLogics.GenerateSerialNumber();
             ViewBag.SerialNumber = sN;
@@ -37,10 +43,10 @@ namespace LibMotInventory.Controllers
             List<Warehouse> warehouseList = new List<Warehouse>();
             warehouseList = (from c in context.Warehouses select c).OrderBy(x => x.ItemName)
                             .ToList();
-            warehouseList.Insert(0, new Warehouse 
+            warehouseList.Insert(0, new Warehouse
             {
-                Id = Guid.NewGuid(), 
-                ItemName = "Select item" 
+                // Id = model.Id, 
+                ItemName = "Select item"
             });
             ViewBag.ItemName = warehouseList;
 
@@ -62,8 +68,17 @@ namespace LibMotInventory.Controllers
                     Cost = model.Cost,
                     SerialNumber = model.SerialNumber,
                     EstimatedValue = model.EstimatedValue,
-                    NumberOfItem = model.NumberOfItem
+                    NumberOfItem = model.NumberOfItem,
                 };
+
+                var employee = new Employee
+                {
+                    EmployeeId = Guid.Parse(user.Id),
+                    InventoryNumber = newInventory.InventoryNumber
+                };
+
+                employeeRepo.Add(employee);
+                await employeeRepo.SaveAsync(employee);
 
                 inventory.Add(newInventory);
                 await inventory.SaveAsync(newInventory);

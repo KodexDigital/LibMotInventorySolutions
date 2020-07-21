@@ -45,6 +45,7 @@ namespace LibMotInventory.Controllers
                 await warehouse.SaveAsync(stock);
                 ViewBag.Addded = "New stock added successfully";
                 ModelState.Clear();
+          
                 return View(model);
             }
             return View();
