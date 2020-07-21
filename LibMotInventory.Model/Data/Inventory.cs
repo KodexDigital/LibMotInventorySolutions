@@ -11,7 +11,7 @@ namespace LibMotInventory.Model.Data
 		public string ItemName { get; set; }
 		public int NumberOfItem { get; set; }
 		public double Cost { get; set; }
-		public string InventroyNumber { get; set; }
+		public string InventoryNumber { get; set; }
 		public string ItemDescription { get; set; }
 		public string SerialNumber { get; set; }
 		public double EstimatedValue { get; set; }

@@ -19,7 +19,7 @@ namespace LibMotInventory.ViewModels
 			inventory.ItemName = ItemName;
 			inventory.NumberOfItem = NumberOfItem;
 			inventory.Cost = Cost;
-			inventory.InventroyNumber = InventoryNumber;
+			inventory.InventoryNumber = InventoryNumber;
 			inventory.ItemDescription = ItemDescription;
 			inventory.SerialNumber = SerialNumber;
 			inventory.EstimatedValue = EstimatedValue;

@@ -39,7 +39,7 @@ namespace LibMotInventory.Controllers
                 {
                     ItemName = model.ItemName,
                     ItemDescription = model.ItemDescription,
-                    InventroyNumber = model.InventoryNumber,
+                    InventoryNumber = model.InventoryNumber,
                     VendorLesser = model.VendorLesser,
                     Cost = model.Cost,
                     SerialNumber = model.SerialNumber,
